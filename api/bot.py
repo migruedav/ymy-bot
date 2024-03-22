@@ -3,7 +3,8 @@ import time
 from selenium import webdriver
 from seleniumwire import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
 
 
 def bot():
@@ -42,10 +43,8 @@ def bot():
         }
         options.add_experimental_option("prefs", prefs)
 
-        service = Service(executable_path="./chromedriver")
-
         driver = webdriver.Chrome(
-            service=service,
+            service=ChromeService(ChromeDriverManager().install()),
             seleniumwire_options=proxy_options,
             chrome_options=options,
         )
