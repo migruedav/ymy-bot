@@ -1,51 +1,52 @@
-    import random
-    import time
-    from seleniumwire import webdriver
-    from selenium.webdriver.chrome.options import Options
-    import chromedriver_binary
+import random
+import time
+from seleniumwire import webdriver
+from selenium.webdriver.chrome.options import Options
+import chromedriver-binary
 
 
-    def bot():
-        try:
-            paises = []
 
-            for i in range(70):
-                paises.append("mx")
-            for i in range(15):
-                paises.append("us")
-            for i in range(5):
-                paises.append("es")
+def bot():
+    try:
+        paises = []
 
-            paises.extend(["ar", "co", "pe", "cl", "br", "ec", "gt", "cu", "do", "bo"])
+        for i in range(70):
+            paises.append("mx")
+        for i in range(15):
+            paises.append("us")
+        for i in range(5):
+            paises.append("es")
 
-            pais = random.choice(paises)
-            print(pais)
-            proxy_options = {
-                "proxy": {
-                    "http": f"http://customer-migruedav-cc-{pais}-sessid-0404864332-sesstime-10:Migruedav1234@pr.oxylabs.io:7777",
-                    "https": f"https://customer-migruedav-cc-{pais}-sessid-0404864332-sesstime-10:Migruedav1234@pr.oxylabs.io:7777",
-                    "no_proxy": "localhost,127.0.0.1",
-                },
-                "verify_ssl": False,  # Desactivar la verificación SSL
-                "suppress_connection_errors": False,  # Mostrar errores de conexión
-            }
+        paises.extend(["ar", "co", "pe", "cl", "br", "ec", "gt", "cu", "do", "bo"])
 
-            options = Options()
-            options.add_argument("--headless")
-            options.add_argument("--disable-gpu")
-            options.add_argument("--no-sandbox")
-            options.add_argument("--disable-dev-shm-usage")
-            prefs = {
-                "profile.managed_default_content_settings.images": 2,  # Bloquear imágenes
-                "profile.default_content_setting_values.css": 2,  # Bloquear CSS
-            }
-            options.add_experimental_option("prefs", prefs)
+        pais = random.choice(paises)
+        print(pais)
+        proxy_options = {
+            "proxy": {
+                "http": f"http://customer-migruedav-cc-{pais}-sessid-0404864332-sesstime-10:Migruedav1234@pr.oxylabs.io:7777",
+                "https": f"https://customer-migruedav-cc-{pais}-sessid-0404864332-sesstime-10:Migruedav1234@pr.oxylabs.io:7777",
+                "no_proxy": "localhost,127.0.0.1",
+            },
+            "verify_ssl": False,  # Desactivar la verificación SSL
+            "suppress_connection_errors": False,  # Mostrar errores de conexión
+        }
 
-            driver = webdriver.Chrome(
-                seleniumwire_options=proxy_options, chrome_options=options
-            )
+        options = Options()
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        prefs = {
+            "profile.managed_default_content_settings.images": 2,  # Bloquear imágenes
+            "profile.default_content_setting_values.css": 2,  # Bloquear CSS
+        }
+        options.add_experimental_option("prefs", prefs)
 
-            driver.get("https://www.youmainlyyou.com/")
+        driver = webdriver.Chrome(
+            seleniumwire_options=proxy_options, chrome_options=options
+        )
+
+        driver.get("https://www.youmainlyyou.com/")
 
         random_time = random.randint(5, 40)
         print("time", random_time)
@@ -76,6 +77,7 @@
         driver.quit()
 
         return "Ok"
+
     except Exception as e:
         print(e)
         return "Error"
