@@ -2,8 +2,6 @@ import random
 import time
 from seleniumwire import webdriver
 from selenium.webdriver.chrome.options import Options
-import chromedriver-binary
-
 
 
 def bot():
