@@ -4,6 +4,8 @@ from selenium import webdriver
 from seleniumwire import webdriver
 from selenium.webdriver.chrome.options import Options
 
+driver = webdriver.Chrome(executable_path="./chromedriver")
+
 
 def bot():
     try:
