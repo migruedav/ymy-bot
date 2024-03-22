@@ -1,5 +1,6 @@
 import random
 import time
+from selenium import webdriver
 from seleniumwire import webdriver
 from selenium.webdriver.chrome.options import Options
 
