@@ -4,8 +4,6 @@ from selenium import webdriver
 from seleniumwire import webdriver
 from selenium.webdriver.chrome.options import Options
 
-driver = webdriver.Chrome(executable_path="./chromedriver")
-
 
 def bot():
     try:
@@ -44,7 +42,9 @@ def bot():
         options.add_experimental_option("prefs", prefs)
 
         driver = webdriver.Chrome(
-            seleniumwire_options=proxy_options, chrome_options=options
+            executable_path="./chromedriver",
+            seleniumwire_options=proxy_options,
+            chrome_options=options,
         )
 
         driver.get("https://www.youmainlyyou.com/")
