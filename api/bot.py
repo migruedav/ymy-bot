@@ -15,16 +15,7 @@ def bot():
         for i in range(5):
             paises.append("es")
 
-        paises.append("ar")
-        paises.append("co")
-        paises.append("pe")
-        paises.append("cl")
-        paises.append("br")
-        paises.append("ec")
-        paises.append("gt")
-        paises.append("cu")
-        paises.append("do")
-        paises.append("bo")
+        paises.extend(["ar", "co", "pe", "cl", "br", "ec", "gt", "cu", "do", "bo"])
 
         pais = random.choice(paises)
         print(pais)
@@ -33,7 +24,9 @@ def bot():
                 "http": f"http://customer-migruedav-cc-{pais}-sessid-0404864332-sesstime-10:Migruedav1234@pr.oxylabs.io:7777",
                 "https": f"https://customer-migruedav-cc-{pais}-sessid-0404864332-sesstime-10:Migruedav1234@pr.oxylabs.io:7777",
                 "no_proxy": "localhost,127.0.0.1",
-            }
+            },
+            "verify_ssl": False,  # Desactivar la verificación SSL
+            "suppress_connection_errors": False,  # Mostrar errores de conexión
         }
 
         options = Options()
