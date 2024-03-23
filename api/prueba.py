@@ -12,7 +12,7 @@ def prueba():
     options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource issues
     options.add_argument("--remote-debugging-port=9222")  # Optional for debugging
 
-    service = Service(executable_path="/")
+    service = Service(executable_path="./chromedriver")
 
     # Ensure the path to ChromeDriver matches your environment
     driver = webdriver.Chrome(options=options, service=service)
