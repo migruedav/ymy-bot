@@ -1,4 +1,3 @@
-# from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from seleniumwire import webdriver
 
@@ -15,7 +14,10 @@ def pru():
         options.binary_location = "/root/code/ymy-bot"
 
         driver = webdriver.Chrome(options=options)
-        location = driver.get("https://ip.oxylabs.io/location")
+        driver.get("https://ip.oxylabs.io/location")
+
+        # Asumiendo que la ubicación se muestra en el cuerpo de la página
+        location = driver.find_element_by_tag_name("body").text
 
         return location
     except Exception as e:
