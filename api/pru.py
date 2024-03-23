@@ -47,7 +47,7 @@ def pru():
         # driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
         driver = webdriver.Chrome(options=options)
         driver.get("https://www.youmainlyyou.com/")
-        time.sleep(5)
+        time.sleep(10)
         driver.quit()
 
         # # random_time = random.randint(1, 10)
