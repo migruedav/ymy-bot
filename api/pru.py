@@ -15,8 +15,8 @@ def pru():
         options.binary_location = "/root/code/ymy-bot"
 
         driver = webdriver.Chrome(options=options)
-        driver.get("https://ip.oxylabs.io/location")
+        location = driver.get("https://ip.oxylabs.io/location")
 
-        return driver.page_source
+        return location
     except Exception as e:
         return str(e)
