@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 
 def prueba():
@@ -11,8 +12,10 @@ def prueba():
     options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource issues
     options.add_argument("--remote-debugging-port=9222")  # Optional for debugging
 
+    service = Service(executable_path="/ruta/a/tu/chromedriver")
+
     # Ensure the path to ChromeDriver matches your environment
-    driver = webdriver.Chrome(executable_path="/root", options=options)
+    driver = webdriver.Chrome(options=options, service=service)
 
     # Your test code here
     driver.get("https://www.youmainlyyou.com")
