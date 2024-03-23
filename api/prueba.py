@@ -20,10 +20,12 @@ def prueba():
         service=Service(ChromeDriverManager().install()), options=options
     )
 
-    # Your test code here
-    driver.get("https://www.youmainlyyou.com")
-    print(driver.title)
+    print("ya pasó el driver")
 
+    driver.get("https://www.youmainlyyou.com")
     driver.quit()
 
     return {"ada": "TPEC"}
+
+
+prueba()
