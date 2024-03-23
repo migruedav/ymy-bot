@@ -1,6 +1,7 @@
 # fastapi exameple app
 
 from fastapi import FastAPI
+from api.pru import pru
 
 app = FastAPI()
 
@@ -13,3 +14,8 @@ async def root():
 @app.get("/ada")
 async def root():
     return {"message": "EBR"}
+
+
+@app.get("/pru")
+async def root():
+    return {"message": pru()}
