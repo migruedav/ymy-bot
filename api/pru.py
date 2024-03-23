@@ -13,7 +13,19 @@ def pru():
         options.add_argument("--user-data-dir=/root/code/ymy-bot")
         options.binary_location = "/root/code/ymy-bot"
 
-        driver = webdriver.Chrome(options=options)
+        pais = "mx"
+
+        proxy_options = {
+            "proxy": {
+                "http": f"http://customer-migruedav-cc-{pais}-sessid-0404864332-sesstime-10:Migruedav1234@pr.oxylabs.io:7777",
+                "https": f"https://customer-migruedav-cc-{pais}-sessid-0404864332-sesstime-10:Migruedav1234@pr.oxylabs.io:7777",
+                "no_proxy": "localhost,127.0.0.1",
+            },
+            "verify_ssl": False,  # Desactivar la verificación SSL
+            "suppress_connection_errors": False,  # Mostrar errores de conexión
+        }
+
+        driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
         driver.get("https://ip.oxylabs.io/location")
         location = driver.find_element(by="tag name", value="body").text
 
