@@ -15,6 +15,12 @@ def pru():
         options.add_argument("--user-data-dir=/root/code/ymy-bot")
         options.binary_location = "/root/code/ymy-bot"
 
+        prefs = {
+            "profile.managed_default_content_settings.images": 2,  # Bloquear imágenes
+            "profile.default_content_setting_values.css": 2,  # Bloquear CSS
+        }
+        options.add_experimental_option("prefs", prefs)
+
         paises = []
 
         for i in range(70):
@@ -37,12 +43,6 @@ def pru():
             "verify_ssl": False,
             "suppress_connection_errors": False,
         }
-
-        prefs = {
-            "profile.managed_default_content_settings.images": 2,  # Bloquear imágenes
-            "profile.default_content_setting_values.css": 2,  # Bloquear CSS
-        }
-        options.add_experimental_option("prefs", prefs)
 
         driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
         driver.get("https://ip.oxylabs.io/location")
