@@ -16,8 +16,8 @@ def pru():
         options.binary_location = "/root/code/ymy-bot"
 
         prefs = {
-            "profile.managed_default_content_settings.images": 2,  # Bloquear imágenes
-            "profile.default_content_setting_values.css": 2,  # Bloquear CSS
+            "profile.managed_default_content_settings.images": 2,
+            "profile.default_content_setting_values.css": 2,
         }
         options.add_experimental_option("prefs", prefs)
 
