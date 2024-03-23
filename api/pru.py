@@ -13,7 +13,7 @@ def pru():
         options.add_argument("--user-data-dir=/root/code/ymy-bot")
         options.binary_location = "/root/code/ymy-bot"
 
-        pais = "es"
+        pais = "ar"
 
         proxy_options = {
             "proxy": {
