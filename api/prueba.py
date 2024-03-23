@@ -11,7 +11,8 @@ def prueba():
     chrome_options.add_argument("--disable-dev-shm-usage")
 
     driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()), options=chrome_options
+        service=Service(ChromeDriverManager(version="123.0.6312.58").install()),
+        options=chrome_options,
     )
     driver.get("https://www.youmainlyyou.com/")
 
