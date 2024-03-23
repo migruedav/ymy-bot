@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 def prueba():
@@ -15,7 +16,9 @@ def prueba():
     service = Service(executable_path="/root/code/ymy-bot/chromedriver")
 
     # Ensure the path to ChromeDriver matches your environment
-    driver = webdriver.Chrome(options=options, service=service)
+    driver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()), options=options
+    )
 
     # Your test code here
     driver.get("https://www.youmainlyyou.com")
