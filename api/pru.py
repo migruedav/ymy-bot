@@ -15,9 +15,7 @@ def pru():
 
         driver = webdriver.Chrome(options=options)
         driver.get("https://ip.oxylabs.io/location")
-
-        # Asumiendo que la ubicación se muestra en el cuerpo de la página
-        location = driver.find_element_by_tag_name("body").text
+        location = driver.find_element(by="tag name", value="body").text
 
         return location
     except Exception as e:
