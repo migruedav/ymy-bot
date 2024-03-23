@@ -27,6 +27,3 @@ def prueba():
     driver.quit()
 
     return {"ada": "TPEC"}
-
-
-prueba()
