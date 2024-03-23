@@ -11,8 +11,6 @@ def pru():
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-gpu")
         options.add_argument("--disable-dev-shm-usage")
-        # options.add_argument("--remote-debugging-port=9222")
-        # options.add_argument("--user-data-dir=/root/code/ymy-bot")
         options.binary_location = "/root/code/ymy-bot"
 
         prefs = {
@@ -48,7 +46,7 @@ def pru():
         driver = webdriver.Chrome(options=options)
         driver.get("https://www.youmainlyyou.com/")
         driver.execute_script("alert('Este es un mensaje de alerta');")
-        time.sleep(10)
+        time.sleep(5)
         driver.quit()
 
         # # random_time = random.randint(1, 10)
