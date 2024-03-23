@@ -11,3 +11,6 @@ def prueba():
     driver.get("https://www.youmainlyyou.com/")
 
     return {"ada": "TPEC"}
+
+
+prueba()
