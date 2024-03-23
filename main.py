@@ -3,6 +3,7 @@
 from fastapi import FastAPI
 from api.pru import pru
 from api.loc import loc
+from api.firefox import firefox
 
 app = FastAPI()
 
@@ -25,3 +26,8 @@ async def root():
 @app.get("/loc")
 async def root():
     return {"message": loc()}
+
+
+@app.get("/firefox")
+async def root():
+    return firefox()
