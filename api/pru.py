@@ -11,7 +11,7 @@ def pru():
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-gpu")
         options.add_argument("--disable-dev-shm-usage")
-        options.binary_location = "/root/code/ymy-bot"
+        options.binary_location = "/usr/bin/google-chrome"
 
         prefs = {
             "profile.managed_default_content_settings.images": 2,
