@@ -5,7 +5,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 def prueba():
-
     options = Options()
     options.add_argument("--headless")  # Run Chrome in headless mode
     options.add_argument("--no-sandbox")  # Bypass Chrome's sandboxing
@@ -13,12 +12,10 @@ def prueba():
     options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource issues
     options.add_argument("--remote-debugging-port=9222")  # Optional for debugging
 
-    service = Service(executable_path="/root/code/ymy-bot/chromedriver")
+    # Utiliza ChromeDriverManager para manejar la descarga y configuración del driver
+    service = Service(ChromeDriverManager().install())
 
-    # Ensure the path to ChromeDriver matches your environment
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()), options=options
-    )
+    driver = webdriver.Chrome(service=service, options=options)
 
     print("ya pasó el driver")
 
