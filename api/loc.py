@@ -4,7 +4,7 @@ import random
 import time
 
 
-def pru():
+def loc():
     try:
         options = Options()
         # options.add_argument("--headless")
@@ -44,7 +44,6 @@ def pru():
         # driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
         driver = webdriver.Chrome(options=options)
         driver.get("https://www.youmainlyyou.com/")
-        driver.execute_script("alert('Este es un mensaje de alerta');")
         time.sleep(5)
         driver.quit()
 

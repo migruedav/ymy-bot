@@ -2,6 +2,7 @@
 
 from fastapi import FastAPI
 from api.pru import pru
+from api.loc import loc
 
 app = FastAPI()
 
@@ -19,3 +20,8 @@ async def root():
 @app.get("/pru")
 async def root():
     return {"message": pru()}
+
+
+@app.get("/loc")
+async def root():
+    return {"message": loc()}
