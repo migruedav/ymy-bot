@@ -47,6 +47,7 @@ def pru():
         # driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
         driver = webdriver.Chrome(options=options)
         driver.get("https://www.youmainlyyou.com/")
+        driver.execute_script("alert('Este es un mensaje de alerta');")
         time.sleep(10)
         driver.quit()
 
