@@ -9,7 +9,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "METC"}
+    return {"message": "METCH"}
 
 
 @app.get("/bot")
@@ -21,4 +21,4 @@ async def root():
 @app.get("/prueba")
 async def root():
     data = prueba()
-    return {"message": data}
+    return "Finished"
