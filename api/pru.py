@@ -47,6 +47,21 @@ def pru():
         driver.get("https://www.youmainlyyou.com/")
         driver.execute_script("alert('Este es un mensaje de alerta');")
         time.sleep(5)
+        arts = driver.find_elements(by="css selector", value="a:has(img):has(h3)")
+        cats = [
+            "Wellbeing & Health",
+            "Allure & Grooming",
+            "Taste",
+            "Style",
+            "Bon Voyage",
+            "Awareness",
+            "Gadgets",
+            "Furnishing",
+        ]
+        cat = driver.find_element(by="link text", value=random.choice(cats))
+        print("cat", cat.text)
+        cat.click()
+        time.sleep(5)
         driver.quit()
 
         # # random_time = random.randint(1, 10)
