@@ -1,5 +1,7 @@
 from selenium.webdriver.chrome.options import Options
 from seleniumwire import webdriver
+import random
+import time
 
 
 def pru():
@@ -13,7 +15,18 @@ def pru():
         options.add_argument("--user-data-dir=/root/code/ymy-bot")
         options.binary_location = "/root/code/ymy-bot"
 
-        pais = "ar"
+        paises = []
+
+        for i in range(70):
+            paises.append("mx")
+        for i in range(15):
+            paises.append("us")
+        for i in range(5):
+            paises.append("es")
+
+        paises.extend(["ar", "co", "pe", "cl", "br", "ec", "gt", "cu", "do", "bo"])
+        pais = random.choice(paises)
+        print(pais)
 
         proxy_options = {
             "proxy": {
@@ -25,11 +38,44 @@ def pru():
             "suppress_connection_errors": False,
         }
 
-        # driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
-        driver = webdriver.Chrome(options=options)
-        driver.get("https://ip.oxylabs.io/location")
-        location = driver.find_element(by="tag name", value="body").text
+        prefs = {
+            "profile.managed_default_content_settings.images": 2,  # Bloquear imágenes
+            "profile.default_content_setting_values.css": 2,  # Bloquear CSS
+        }
+        options.add_experimental_option("prefs", prefs)
 
-        return location
+        driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
+        driver.get("https://www.youmainlyyou.com/")
+
+        random_time = random.randint(1, 10)
+        print("time1", random_time)
+        time.sleep(random_time)
+        arts = driver.find_elements(by="css selector", value="a:has(img):has(h3)")
+        cats = [
+            "Wellbeing & Health",
+            "Allure & Grooming",
+            "Taste",
+            "Style",
+            "Bon Voyage",
+            "Awareness",
+            "Gadgets",
+            "Furnishing",
+        ]
+        cat = driver.find_element(by="link text", value=random.choice(cats))
+        print("cat", cat.text)
+        cat.click()
+        random_time = random.randint(1, 10)
+        print("time2", random_time)
+        time.sleep(random_time)
+        arts = driver.find_elements(by="css selector", value="a:has(img):has(h3)")
+        art = random.choice(arts)
+        art.click()
+        random_time = random.randint(1, 10)
+        print("time3", random_time)
+        time.sleep(random_time)
+        driver.quit()
+
+        return "OK"
+
     except Exception as e:
         return str(e)
