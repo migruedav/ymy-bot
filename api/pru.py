@@ -45,7 +45,9 @@ def pru():
         options.add_experimental_option("prefs", prefs)
 
         driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
-        driver.get("https://www.youmainlyyou.com/")
+        driver.get("https://ip.oxylabs.io/location")
+
+        location = driver.find_element(by="tag name", value="body").text
 
         # # random_time = random.randint(1, 10)
         # random_time = 3
@@ -78,7 +80,7 @@ def pru():
         # time.sleep(random_time)
         # driver.quit()
 
-        return {"pais": pais, "message": "METDC"}
+        return {"pais": pais, "message": "METDC", "location": location}
 
     except Exception as e:
         return str(e)
