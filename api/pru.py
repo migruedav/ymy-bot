@@ -1,4 +1,5 @@
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from seleniumwire import webdriver
 import random
 import time
@@ -18,6 +19,8 @@ def pru():
             "profile.default_content_setting_values.css": 2,
         }
         options.add_experimental_option("prefs", prefs)
+
+        service = Service("/root/code/ymy-bot/chromedriver")
 
         paises = []
 
@@ -43,7 +46,8 @@ def pru():
         }
 
         # driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
-        driver = webdriver.Chrome(options=options)
+        # driver = webdriver.Chrome(options=options)
+        driver = webdriver.Chrome(service=service, options=options)
         driver.get("https://www.youmainlyyou.com/")
         driver.execute_script("alert('Este es un mensaje de alerta');")
         time.sleep(5)
