@@ -44,8 +44,10 @@ def pru():
             "suppress_connection_errors": False,
         }
 
-        driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
+        # driver = webdriver.Chrome(options=options, seleniumwire_options=proxy_options)
+        driver = webdriver.Chrome(options=options)
         driver.get("https://www.youmainlyyou.com/")
+        time.sleep(5)
         driver.quit()
 
         # # random_time = random.randint(1, 10)
